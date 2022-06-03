@@ -266,6 +266,7 @@ main {
 				flex-direction: column;
 				box-sizing: border-box;
 				padding: 20px;
+				gap: 5px;
 				
 				background: var(--most-light-color);
 				border-left: 10px var(--call-to-action-color) solid;
@@ -282,6 +283,8 @@ main {
 
 				/* ~ Project Description */
 				main section#your_projects>div#project_container>div.project p {
+					margin-bottom: 20px;
+					
 					font-size: 14px;
 					font-weight: normal;
 					color: var(--very-dark-color);
@@ -293,6 +296,8 @@ main {
 					justify-content: flex-end;
 					align-items: center;
 					gap: 15px;
+					
+					margin-top: auto;
 				}
 
 					/* ? Project Buttons */
@@ -329,6 +334,7 @@ main {
 					display: flex;
 					flex-direction: column;
 					padding: 15px 0;
+					gap: 4px;
 				}
 
 				/* ~ Announcements Border */
@@ -339,7 +345,7 @@ main {
 					/* ? Announcement Descriptions */
 					main section#side_menus div.announcement p {	
 						color: var(--very-dark-color);
-						font-size: 14px;
+						font-size: 10px;
 					}
 
 		/* ! Trending Menu */
@@ -393,7 +399,7 @@ main {
 	
 	/* * Subsection Headings */
 	main h3.subsection_heading {
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 550;
 	}
 
