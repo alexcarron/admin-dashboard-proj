@@ -34,6 +34,7 @@ body {
 
 /* ^ NAV */
 nav {	
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 50px;
@@ -46,6 +47,10 @@ nav {
 	
 	color: var(--most-light-color);
 	font-weight: 550;
+	
+	font-size: 18px;
+	
+	z-index: 2;
 }
 
 	/* @ Dashboard Heading */
@@ -93,6 +98,7 @@ nav {
 
 /* ^ HEADER */
 header {
+	position: relative;
 	display: grid;
 	grid-template-rows: 1fr 2fr;
 	grid-template-columns: 1fr;
@@ -105,6 +111,8 @@ header {
 	grid-area: header;
 	
 	background: var(--most-light-color);
+	box-shadow: 0px 0px 10px #00000020;
+	z-index: 1;
 }
 
 	/* @ HEADER ROWS */
@@ -131,8 +139,16 @@ header {
 		
 			/* & Search Bar */
 			header section#top_header div#search_bar_section input#search_bar {
-				width: min(400px, 90%);
-				height: 20px;
+				box-sizing: border-box;
+				width: min(500px, 90%);
+				height: 25px;
+				padding: 10px;
+				
+				background-color: var(--very-light-color);
+				border: none;
+				border-radius: 25px;
+				
+				font-size: 14px;
 			}
 		
 		/* ! Right Side */
@@ -190,7 +206,7 @@ header {
 					font-size: 20px;
 				}
 				
-			/* ! Project Buttons Sectopm */
+			/* ! Project Buttons Section */
 			header section#bottom_header div#project_buttons {
 				display: flex;
 				justify-content: flex-end;
@@ -223,7 +239,7 @@ main {
 	grid-template-columns: 1fr 250px;
 	gap: 15px;
 	box-sizing: border-box;
-	padding: 15px;
+	padding: 25px 15px;
 	
 	grid-area: main;
 	
@@ -234,7 +250,7 @@ main {
 	main section#your_projects {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 15px;
 	}
 
 		/* ! Projects Container */
@@ -252,6 +268,9 @@ main {
 				padding: 20px;
 				
 				background: var(--most-light-color);
+				border-left: 10px var(--call-to-action-color) solid;
+				border-radius: 10px 5px 5px 10px;
+				box-shadow: 0 0 8px #00000010;
 			}
 
 				/* ~ Project Heading */
@@ -278,21 +297,21 @@ main {
 
 					/* ? Project Buttons */
 					main section#your_projects>div#project_container>div.project div.project_buttons img {
-						width: 40px;
+						width: 30px;
 					}
 
 	/* @ Side Menus */
 	main section#side_menus {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 30px;
 	}
 
 		/* ! Announcements Menu */
 		main section#side_menus section#announcements_menu {
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			gap: 15px;
 		}
 
 			/* & Announcements Container */
@@ -302,6 +321,7 @@ main {
 				padding: 25px;
 				
 				background: var(--most-light-color);
+				border-radius: 8px;
 			}
 
 				/* ~ Announcements */
@@ -326,7 +346,7 @@ main {
 		main section#side_menus section#trending_menu {
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			gap: 15px;
 		}
 
 			/* & Trending Users Container */
@@ -334,9 +354,10 @@ main {
 				display: flex;
 				flex-direction: column;
 				gap: 20px;
-				padding: 15px;
+				padding: 20px;
 				
 				background: var(--most-light-color);
+				border-radius: 8px;
 			}
 
 				/* ~ Trending Users */
