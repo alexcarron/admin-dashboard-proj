@@ -3,9 +3,9 @@
 	--most-light-color: #FFFFFF;
 	--very-light-color: #E6E6E6;
 	--call-to-action-color: #ffbf00;
-	--bright-color: #2957c2;
-	--light-color: #3055aa;
-	--dark-color: #265471;
+	--bright-color: #0a7cc8;
+	--light-color: #1571ae;
+	--dark-color: #105584;
 	--very-dark-color: #343434;
 	--most-dark-color: #000000;
 }
@@ -20,171 +20,361 @@ html {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body
+
+/* ^ BODY */
+body {
+	display: grid;
+	grid-template-rows: 150px 1fr;
+	grid-template-columns: minmax(100px, 250px) 1fr;
+	grid-template-areas:
+		"nav header"
+		"nav main"
+}
+
+
+/* ^ NAV */
+nav {	
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	box-sizing: border-box;
+	padding: 20px;
+	
+	grid-area: nav;
+	
+	background: var(--bright-color);
+	
+	color: var(--most-light-color);
+	font-weight: 550;
+}
+
+	/* @ Dashboard Heading */
+	nav section#dashboard_logo {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		
+		height: 50px;
+	}
+
+		/* ! Dashboard Logo */
+		nav section#dashboard_logo img {
+			height: 100%;
+		}
+
+		/* ! Dashboard Heading */
+		nav section#dashboard_logo h2 {
+			font-size: 20px;
+			
+		}
+
+	/* @ Dashboard Main Buttons Section */
+	nav section.buttons_section {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		
+	}
+
+		/* ! Dashboard Main Buttons */
+		nav section.buttons_section>div.button {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			
+			height: 30px;
+		}
+
+			/* & Dashboard Main Button Icon */
+			nav section.buttons_section>div.button img {
+				height: 100%;
+			}
+
 
 /* ^ HEADER */
 header {
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+	grid-template-columns: 1fr;
+	gap: 10px;
 	box-sizing: border-box;
+	height: 100%;
+	padding: 10px 40px 10px 30px;
+	overflow: hidden;
 	
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	grid-area: header;
 	
-	background: var(--very-dark-color);
-	
-	height: 100px;
-	padding: 10pt;
-	
-	text-align: center;
-	color: var(--very-light-color);
+	background: var(--most-light-color);
 }
-		
-	header>h1 {
-		font-weight: bold;
-		font-size: 48pt;
-		text-shadow: 5px 5px 5px #000000;
-	}
-	
-	header>img {
-		height: 80px;
-		
-		margin-right: 20px;
-		filter: drop-shadow(5px 5px 5px #000000);
-	}
-	
-/* ^ NAV */
-nav {
-	box-sizing: border-box;
-	
-	position: sticky;
-	top: 0;
-	
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	
-	box-shadow: 0 0 2vw #000000;
-	
-	background: #000000A0;
-	width: 100vw;
-	height: 50px;
-	padding-left: 20px;	
-	
-	z-index: 1;
-}
-		
-	/* ! NAVIGATION MENU LINKS */
-	nav a {
-		color: var(--very-light-color);
-	}
-	
-	nav>a {
-		box-sizing: border-box;
-		
-		padding: 0 15px;
-		
-		color: var(--very-light-color);
-		text-shadow: 2px 2px 1px #000000;
-		text-decoration: none;
-		font-size: 16pt;
-		font-weight: bold;
-		
-		transition: filter 150ms ease;
+
+	/* @ HEADER ROWS */
+	header section {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
-	nav>a:hover {
-		filter: brightness(150%);
+	/* @ Header Top Row */
+		/* ! Search Bar Section */
+		header section#top_header div#search_bar_section {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 10px;
+			box-sizing: border-box;
+			
+			padding: 5px 0;
+			
+			width: 100%;
+			height: 100%;
+		} 
+		
+			/* & Search Bar */
+			header section#top_header div#search_bar_section input#search_bar {
+				width: min(400px, 90%);
+				height: 20px;
+			}
+		
+		/* ! Right Side */
+		header section#top_header div.aligned_right {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 20px;
+			margin-left: auto;
+		}
+		
+			/* & User Avatar */
+			header section#top_header div.aligned_right img.avatar {
+				height: 40px;
+			}
+		
+			/* & Use Name */
+			header section#top_header div.aligned_right p.user_name {
+				width: 100px;
+				font-weight: 550;
+				color: var(--most-dark-color);
+			}
+
+	/* @ Header Bottom Row */
+		/* ! Introduction */
+		header section#bottom_header div#introduction {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		
+			/* & User Avatar */
+			header section#bottom_header img.avatar {
+				height: 60px;
+			}
+		
+			/* & Introduction Text */
+			header section#bottom_header div.text {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				gap: 5px;
+				
+				font-weight: 550;
+			}
+		
+				/* & Greeting Text */
+				header section#bottom_header p.greeting {
+					font-size: 12px;
+				}
+		
+				/* & User Name Text */
+				header section#bottom_header p.user_name {
+					font-size: 20px;
+				}
+				
+			/* ! Project Buttons Sectopm */
+			header section#bottom_header div#project_buttons {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				gap: 20px;
+			}
+				
+				/* & Project Buttons */
+				header section#bottom_header div#project_buttons>button {
+					width: 80px;
+					padding: 10px;
+					border: none;
+					border-radius: 25px;
+					
+					background: var(--bright-color);
+					color: var(--most-light-color);
+					font-size: 12px;
+					font-weight: bold;
+				}
+		
+	/* * Icons */
+	header img.icon {
+		height: 25px;
 	}
-	
 
 /* ^ MAIN */
-	/* @ SECTIONS */
-	main>section {
-		box-sizing: border-box;
-		
-		padding: 60px 50px;
-		
-		background: var(--most-light-color);
-		color: var(--most-dark-color);
-	}
-
-		/* ! Every Other Section */
-		main>section:nth-child(2n) {
-			background: var(--very-light-color);
-		}
-		
-		/* ! Section Header */
-		main>section h2 {
-			font-size: 36pt;
-			color: var(--dark-color);
-			font-weight: bold;
-		}
-
-		/* ! Section Sub-Headers */
-		main>section h3 {
-			font-size: 28pt;
-			margin-top: 20px;
-			font-weight: bold;
-		}
-
-		/* ! Section Body Paragraph Text */
-		main>section p {
-			font-size: 14pt;
-			margin-top: 10px;
-			
-			overflow: hidden;
-		}
-		
-/* ^ FOOTER */
-footer {
+main {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 250px;
+	gap: 15px;
 	box-sizing: border-box;
+	padding: 15px;
 	
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: flex-start;
+	grid-area: main;
 	
-	box-shadow: 0 0 1vw #000000;
-	
-	padding: 30px;
-	
-	background-color: var(--most-dark-color);
-	color: var(--most-light-color);
-	text-align: center;
+	background: var(--very-light-color);
 }
-	
-	/* @ Footer Sections */
-	footer section {
-		margin: 20px 10px;
+
+	/* @ Projects Section */
+	main section#your_projects {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 	}
 
-		/* ! Footer Links */
-		footer a {
-			color: var(--call-to-action-color);
-			font-weight: normal;
+		/* ! Projects Container */
+		main section#your_projects>div#project_container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+			gap: 15px;
 		}
 
-		/* ! Footer Headers */
-		footer h1 {
-			font-size: 18pt;
-			font-weight: bold;
-		}
+			/* & Projects */
+			main section#your_projects>div#project_container>div.project {
+				display: flex;
+				flex-direction: column;
+				box-sizing: border-box;
+				padding: 20px;
+				
+				background: var(--most-light-color);
+			}
 
-		/* ! Footer Body Paragraph Text */
-		footer p {
+				/* ~ Project Heading */
+				main section#your_projects>div#project_container>div.project h2 {
+					font-size: 18px;
+					font-weight: 550;
+					color: var(--most-dark-color);
+				}
+
+				/* ~ Project Description */
+				main section#your_projects>div#project_container>div.project p {
+					font-size: 14px;
+					font-weight: normal;
+					color: var(--very-dark-color);
+				}
+
+				/* ~ Project Buttons Container */
+				main section#your_projects>div#project_container>div.project div.project_buttons {
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					gap: 15px;
+				}
+
+					/* ? Project Buttons */
+					main section#your_projects>div#project_container>div.project div.project_buttons img {
+						width: 40px;
+					}
+
+	/* @ Side Menus */
+	main section#side_menus {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+		/* ! Announcements Menu */
+		main section#side_menus section#announcements_menu {
 			display: flex;
-			justify-content: center;
-			align-items: center;
-			
-			font-size: 13pt;
-			font-weight: normal;
+			flex-direction: column;
+			gap: 10px;
 		}
-		
-		/* ! Footer Tiny Icons */
-		footer img {
-			height: 13pt;
-			margin: 0 5px;
+
+			/* & Announcements Container */
+			main section#side_menus div#announcements {	
+				display: flex;
+				flex-direction: column;
+				padding: 25px;
+				
+				background: var(--most-light-color);
+			}
+
+				/* ~ Announcements */
+				main section#side_menus div.announcement {	
+					display: flex;
+					flex-direction: column;
+					padding: 15px 0;
+				}
+
+				/* ~ Announcements Border */
+				main section#side_menus div.announcement:nth-child(n + 2) {	
+					border-top: 1px solid var(--very-light-color);
+				}
+
+					/* ? Announcement Descriptions */
+					main section#side_menus div.announcement p {	
+						color: var(--very-dark-color);
+						font-size: 14px;
+					}
+
+		/* ! Trending Menu */
+		main section#side_menus section#trending_menu {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
 		}
+
+			/* & Trending Users Container */
+			main section#side_menus div#trending {	
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				padding: 15px;
+				
+				background: var(--most-light-color);
+			}
+
+				/* ~ Trending Users */
+				main section#side_menus div.trending_user {	
+					display: flex;
+					align-items: center;
+					gap: 15px;
+				}
+
+					/* ? Trending User Avatars */
+					main section#side_menus div.trending_user img.avatar {	
+						height: 50px;
+					}
+
+					/* ? Trending User Text Contianer */
+					main section#side_menus div.trending_user div.text {	
+						display: flex;
+						flex-direction: column;
+						gap: 2px;
+					}
+
+						/* * Trending User Description */
+						main section#side_menus div.trending_user div.text p {	
+							font-size: 12px;
+							color: var(--very-dark-color);
+						}
+
+	/* * Section Heading */
+	main h2.section_heading {
+		font-size: 20px;
+		font-weight: 550;
+	}
+	
+	/* * Subsection Headings */
+	main h3.subsection_heading {
+		font-size: 16px;
+		font-weight: 550;
+	}
 
 
 
@@ -211,4 +401,8 @@ strong {
 	grid-auto-rows: 1fr;
 	grid-auto-columns: 1fr;
 	gap: 0px;
+}
+
+img.avatar {
+	border-radius: 50%;
 }
